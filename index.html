@@ -2,21 +2,18 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker Pro</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 
-<title>Personal Finance Tracker Pro</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 </head>
 
@@ -24,265 +21,278 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <div class="container">
 
-<!-- Sidebar -->
+    <!-- Sidebar -->
 
-<aside class="sidebar">
+    <aside class="sidebar">
 
-<h2><i class="fa-solid fa-wallet"></i> Finance</h2>
+        <h2><i class="fa-solid fa-wallet"></i> Finance</h2>
 
-<ul>
+        <ul>
 
-<li class="active">
-<i class="fa-solid fa-house"></i>
-Dashboard
-</li>
+    <li>
+        <a href="#dashboard">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </a>
+    </li>
 
-<li>
-<i class="fa-solid fa-chart-pie"></i>
-Analytics
-</li>
+    <li>
+        <a href="#analytics">
+            <i class="fa-solid fa-chart-pie"></i>
+            Analytics
+        </a>
+    </li>
 
-<li>
-<i class="fa-solid fa-receipt"></i>
-Transactions
-</li>
+    <li>
+        <a href="#transactions">
+            <i class="fa-solid fa-table"></i>
+            Transactions
+        </a>
+    </li>
 
-<li>
-<i class="fa-solid fa-gear"></i>
-Settings
-</li>
+    <li>
+        <a href="#settings">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </a>
+    </li>
 
 </ul>
 
-</aside>
+    </aside>
 
-<!-- Main -->
+    <!-- Main -->
 
-<div class="main">
+    <main class="main">
 
-<header>
+        <header>
 
-<h1>Personal Finance Tracker</h1>
+            <h1>Personal Finance Tracker</h1>
 
-<div class="header-buttons">
+            <div class="header-buttons">
 
-<button id="themeBtn">
-<i class="fa-solid fa-moon"></i>
-</button>
+                <button id="themeBtn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
 
-<button id="pdfBtn">
-Export PDF
-</button>
+                <button id="pdfBtn">
+                    Export PDF
+                </button>
 
-<button id="csvBtn">
-Export CSV
-</button>
+                <button id="csvBtn">
+                    Export CSV
+                </button>
 
-</div>
+            </div>
 
-</header>
+        </header>
 
-<!-- Dashboard -->
+        <!-- Dashboard Cards -->
 
-<section class="cards">
+        <section class="cards" id="dashboard">
 
-<div class="card">
+            <div class="card">
 
-<h3>Total Balance</h3>
+                <h3>Total Balance</h3>
 
-<h2 id="balance">₹0</h2>
+                <h2 id="balance">₹0</h2>
 
-</div>
+            </div>
 
-<div class="card income">
+            <div class="card income">
 
-<h3>Total Income</h3>
+                <h3>Total Income</h3>
 
-<h2 id="income">₹0</h2>
+                <h2 id="income">₹0</h2>
 
-</div>
+            </div>
 
-<div class="card expense">
+            <div class="card expense">
 
-<h3>Total Expense</h3>
+                <h3>Total Expense</h3>
 
-<h2 id="expense">₹0</h2>
+                <h2 id="expense">₹0</h2>
 
-</div>
+            </div>
 
-<div class="card savings">
+            <div class="card savings">
 
-<h3>Savings</h3>
+                <h3>Savings</h3>
 
-<h2 id="savings">₹0</h2>
+                <h2 id="savings">₹0</h2>
 
-</div>
+            </div>
 
-</section>
+        </section>
 
-<!-- Form -->
+        <!-- Transaction Form -->
 
-<section class="transaction-form">
+        <section class="transaction-form">
 
-<h2>Add Transaction</h2>
+            <h2>Add Transaction</h2>
 
-<form id="expenseForm">
+            <form id="expenseForm">
 
-<input
-type="text"
-id="title"
-placeholder="Title"
-required>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Title"
+                    required>
 
-<input
-type="number"
-id="amount"
-placeholder="Amount"
-required>
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount"
+                    required>
 
-<select id="type">
+                <select id="type">
 
-<option>Income</option>
+                    <option>Income</option>
+                    <option>Expense</option>
 
-<option>Expense</option>
+                </select>
 
-</select>
+                <select id="category">
 
-<select id="category">
+                    <option>Salary</option>
+                    <option>Food</option>
+                    <option>Shopping</option>
+                    <option>Travel</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Other</option>
 
-<option>Salary</option>
+                </select>
 
-<option>Food</option>
+                <input
+                    type="date"
+                    id="date"
+                    required>
 
-<option>Shopping</option>
+                <button type="submit">
 
-<option>Travel</option>
+                    Add Transaction
 
-<option>Bills</option>
+                </button>
 
-<option>Entertainment</option>
+            </form>
 
-<option>Other</option>
+        </section>
 
-</select>
+        <!-- Search -->
 
-<input
-type="date"
-id="date"
-required>
+        <section class="controls">
 
-<button type="submit">
+            <input
+                type="text"
+                id="search"
+                placeholder="Search Transaction">
 
-Add Transaction
+            <select id="categoryFilter">
 
-</button>
+                <option value="All">All Categories</option>
+                <option value="Salary">Salary</option>
+                <option value="Food">Food</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Travel">Travel</option>
+                <option value="Bills">Bills</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Other">Other</option>
 
-</form>
+            </select>
 
-</section>
+        </section>
+                <!-- Charts -->
 
-<!-- Search -->
+       <section class="charts" id="analytics">
 
-<section class="controls">
+            <div class="chart-box">
 
-<input
-type="text"
-id="search"
-placeholder="Search Transaction">
+                <h2>Expense Distribution</h2>
 
-<select id="categoryFilter">
+                <canvas id="pieChart"></canvas>
 
-<option value="All">All Categories</option>
+            </div>
 
-<option value="Salary">Salary</option>
+            <div class="chart-box">
 
-<option value="Food">Food</option>
+                <h2>Income vs Expense</h2>
 
-<option value="Shopping">Shopping</option>
+                <canvas id="barChart"></canvas>
 
-<option value="Travel">Travel</option>
+            </div>
 
-<option value="Bills">Bills</option>
+        </section>
 
-<option value="Entertainment">Entertainment</option>
+        <!-- Transaction History -->
 
-<option value="Other">Other</option>
+        <section class="transactions" id="transactions"></section>
 
-</select>
+            <h2>Transaction History</h2>
 
-</section>
-<!-- Charts -->
+            <table>
 
-<section class="charts">
+                <thead>
 
-    <div class="chart-box">
+                    <tr>
 
-        <h2>Expense Distribution</h2>
+                        <th>Title</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Action</th>
 
-        <canvas id="pieChart"></canvas>
+                    </tr>
+
+                </thead>
+
+                <tbody id="transactionList">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section class="settings" id="settings">
+
+    <h2>Settings</h2>
+
+    <div class="card">
+
+        <h3>Application Settings</h3>
+
+        <button id="clearData">
+
+            Clear All Transactions
+
+        </button>
 
     </div>
 
-    <div class="chart-box">
-
-        <h2>Income vs Expense</h2>
-
-        <canvas id="barChart"></canvas>
-
-    </div>
-
 </section>
+        <!-- Toast -->
 
-<!-- Transactions -->
+        <div id="toast">
 
-<section class="transactions">
+            Transaction Added Successfully
 
-    <h2>Transaction History</h2>
+        </div>
 
-    <table>
+        <!-- Footer -->
 
-        <thead>
+        <footer>
 
-            <tr>
+            <p>
 
-                <th>Title</th>
-                <th>Amount</th>
-                <th>Type</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Action</th>
+                © 2026 Personal Finance Tracker Pro | Designed by TEJAAA
 
-            </tr>
+            </p>
 
-        </thead>
+        </footer>
 
-        <tbody id="transactionList">
-
-        </tbody>
-
-    </table>
-
-</section>
-
-<!-- Toast -->
-
-<div id="toast">
-
-Transaction Added Successfully
-
-</div>
-
-<footer>
-
-    <p>
-
-        © 2026 Personal Finance Tracker Pro | Designed by TEJAAA
-
-    </p>
-
-</footer>
-
-</div>
+    </main>
 
 </div>
 

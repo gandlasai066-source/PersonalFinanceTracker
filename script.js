@@ -461,3 +461,31 @@ document.getElementById("csvBtn").addEventListener("click", () => {
 loadTransactions();
 
 updateCharts();
+
+
+
+// Clear Data
+
+const clearBtn = document.getElementById("clearData");
+
+if (clearBtn) {
+
+    clearBtn.addEventListener("click", () => {
+
+        if(confirm("Delete all transactions?")){
+
+            transactions=[];
+
+            saveData();
+
+            loadTransactions();
+
+            updateCharts();
+
+            showToast("All Transactions Deleted");
+
+        }
+
+    });
+
+}
